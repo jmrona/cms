@@ -1,0 +1,83 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #00A0FF;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-size: 16px;
+}
+
+.box {
+  margin: 0px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  position: absolute;
+  padding: 16px;
+  width: 500px;
+}
+
+.box .btn-success {
+  width: 100%;
+  border: 0px;
+}
+
+.box .form-control:focus, .box .form-control:active {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.box-login {
+  left: calc(50% - 250px);
+  top: calc(50% - 200px);
+}
+
+.box-register {
+  left: calc(50% - 250px);
+  top: calc(50% - 305px);
+}
+
+.box-login .header a,
+.box-register .header a {
+  text-decoration: none;
+  color: #000;
+}
+
+.box-login .header a img,
+.box-register .header a img {
+  position: relative;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  width: 150px;
+}
+
+.box-login .header a p,
+.box-register .header a p {
+  margin-top: -40px;
+  text-align: center;
+}
+
+.box-login .footer,
+.box-register .footer {
+  text-align: center;
+}
+
+.box-login .footer a,
+.box-register .footer a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.box-login .footer a:last-child,
+.box-register .footer a:last-child {
+  margin-left: 2rem;
+}
+
+.input-group-text {
+  height: 100%;
+}
+/*# sourceMappingURL=connect.css.map */
