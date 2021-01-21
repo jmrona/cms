@@ -23,3 +23,7 @@ Route::post('/login', 'App\Http\Controllers\ConnectController@postLogin')->name(
 Route::get('/register', 'App\Http\Controllers\ConnectController@getRegister')->name('register');
 Route::post('/register', 'App\Http\Controllers\ConnectController@postRegister')->name('register');
 Route::get('/logout', 'App\Http\Controllers\ConnectController@getLogout')->name('logout');
+Route::get('/recover', 'App\Http\Controllers\ConnectController@recoverPassword')->name('recover');
+Route::post('/recover', 'App\Http\Controllers\ConnectController@postRecoverPassword')->name('recover');
+Route::get('/reset', 'App\Http\Controllers\ConnectController@resetPassword')->name('reset');
+Route::post('/reset', 'App\Http\Controllers\ConnectController@postResetPassword')->name('reset');

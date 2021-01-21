@@ -13,26 +13,26 @@
         <div class="content">
             {{-- Errors --}}
             @if(Session::has('message'))
-                <div class="container mt-3 mb-3">
-                    <div class="p-3 alter alert-{{Session::get('typealert')}}">
-                        @if ($errors->any())
-                            <h6>{{Session::get('message')}}</h6>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-                        <script>
-                            $('.alert').slideDown();
+            <div class="">
+                <div class=" glass alert alert-{{Session::get('typealert')}}">
+                    <h6>{{Session::get('message')}}</h6>
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    <script>
+                        $('.alert').slideDown();
 
-                            setTimeout(function() {
-                                $('.alert').slideUp();
-                            }, 1000);
-                        </script>
-                    </div>
+                        setTimeout(function() {
+                            $('.alert').slideUp();
+                        }, 4000);
+                    </script>
                 </div>
-            @endif
+            </div>
+        @endif
             {!! Form::open(['url'=> '/register']) !!}
                 {!! Form::label('firstname', 'First name', []) !!}
                 <div class="input-group">

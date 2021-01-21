@@ -1,0 +1,41 @@
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert h6 {
+  font-size: 1rem;
+}
+
+.alert li {
+  font-size: 0.9rem;
+  margin: 0 2rem;
+}
+
+.alert-danger {
+  color: #3b0d12;
+  background-color: #e46d6d;
+  border-color: #f5c6cb;
+}
+
+.alert-info {
+  color: #162f4d;
+  background-color: #69c4ee;
+  border-color: #c6eef5;
+}
+
+.alert-success {
+  color: #145814;
+  background-color: #62c562;
+  border-color: #c6f5c8;
+}
+
+.alert-warning {
+  color: #634d24;
+  background-color: #e6bd71;
+  border-color: #f5e9c6;
+}
+/*# sourceMappingURL=alert.css.map */

@@ -1,6 +1,6 @@
 @extends('connect.master')
 
-@section('title', 'Login')
+@section('title', 'Recover password')
 
 @section('content')
     <div class="box box-login shadow">
@@ -34,7 +34,7 @@
             </div>
         @endif
 
-            {!! Form::open(['url'=> '/login']) !!}
+            {!! Form::open(['url'=> '/recover', 'method' => 'post']) !!}
                 {!! Form::label('email', 'Email', []) !!}
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -43,19 +43,12 @@
                     {!! Form::email('email', null, ['class'=> 'form-control']) !!}
                 </div>
 
-                {!! Form::label('password', 'Password', ['class' => 'mt-2']) !!}
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-key"></i></i></div>
-                    </div>
-                    {!! Form::password('password', ['class'=> 'form-control']) !!}
-                </div>
-                {!! Form::submit('Login', ['class' => 'btn btn-success mt-4']) !!}
+
+                {!! Form::submit('Recover password', ['class' => 'btn btn-success mt-4']) !!}
             {!! Form::close() !!}
-        </div>
-        <div class="footer mt-2">
-            <a href="{{ url('/register')}}">Don't you have an account? Sign up</a>
-            <a href="{{ url('/recover')}}">Recover my password</a>
+            <div class="footer mt-2">
+                <a href="{{ url('/login')}}">Do you have an account? Log in</a>
+            </div>
         </div>
     </div>
 @stop
