@@ -52,7 +52,7 @@
                         {!! Form::label('module', 'Module*', []) !!}
                         {!! Form::select('module', $modules, $category->module, ['class'=> 'w-50','placeholder' => 'Pick a module...']) !!}
 
-                        {!! Form::submit('Update', ['class' => 'btn-submit btn-success mt-1']) !!}
+                        {!! Form::submit('Update', ['class' => 'btn-submit btn-success btn-block']) !!}
                     {!! Form::close() !!}
                 </div>
 

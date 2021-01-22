@@ -1,9 +1,15 @@
 .alert {
-  position: relative;
+  position: absolute;
+  top: 100px;
+  left: 45%;
   padding: .75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 1111;
 }
 
 .alert h6 {

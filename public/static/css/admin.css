@@ -227,8 +227,17 @@ nav.navbar .profile span {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  max-width: 100%;
-  max-height: 30px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 100%;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   margin-top: 10px auto;
   padding: 5px 15px;
   font-size: .8rem;
@@ -293,8 +302,17 @@ nav.navbar .profile span {
           flex-grow: 4;
 }
 
+.flex-break {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 0px;
+}
+
 .panel {
   padding: 10px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -318,15 +336,46 @@ nav.navbar .profile span {
 }
 
 .panel .panel-body {
+  width: 100%;
   font-size: 0.9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.permissions div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  place-items: center;
+  padding: 3px;
+  width: 100%;
+  border-bottom: 1px solid rgba(88, 89, 97, 0.1);
+}
+
+.permissions div:nth-child(odd) {
+  background: #e3ebef;
+}
+
+.permissions div label {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 100%;
 }
 
 .gallery {
@@ -486,6 +535,7 @@ table td a, table th a {
   font-weight: bold;
   padding: 3px 6px;
   text-decoration: none;
+  text-align: center;
   border: 1px solid rgba(88, 89, 97, 0.1);
   border-radius: 3px;
   -webkit-transition: 0.1s ease-in-out;
@@ -539,26 +589,19 @@ table td a, table th a {
 }
 
 .form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .form label {
-  width: 100%;
-  margin-top: 10px !important;
+  display: inline-block;
   font-size: 1rem;
   font-weight: 500;
-}
-
-.form input {
-  width: 100%;
-  margin-bottom: 12px;
-  margin-top: 5px;
 }
 
 .form input[type="text"],
@@ -566,6 +609,9 @@ table td a, table th a {
 .form input[type="file"],
 .form select,
 .form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  margin-top: 5px;
   padding: 5px;
   font-size: 0.8rem;
   border-radius: 3px;
@@ -581,6 +627,10 @@ table td a, table th a {
 .form textarea:focus {
   outline: none;
   border: 1px solid #006099;
+}
+
+.form input[type="checkbox"] {
+  padding: 3px;
 }
 
 .form input[type="submit"] {
@@ -620,6 +670,26 @@ table td a, table th a {
   width: 33% !important;
 }
 
+.minh-25 {
+  min-height: 25% !important;
+}
+
+.minh-50 {
+  min-height: 50% !important;
+}
+
+.minh-75 {
+  min-height: 75% !important;
+}
+
+.minh-100 {
+  min-height: 100% !important;
+}
+
+.minh-33 {
+  min-height: 33% !important;
+}
+
 .mb-1 {
   margin-bottom: 1rem !important;
 }
@@ -628,8 +698,29 @@ table td a, table th a {
   margin-top: 1rem !important;
 }
 
+.ml-1 {
+  margin-left: 1rem !important;
+}
+
+.mr-1 {
+  margin-right: 1rem !important;
+}
+
 .m-1 {
   margin: 1rem;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.align-self-end {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {

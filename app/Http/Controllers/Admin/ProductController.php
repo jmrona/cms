@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
 use App\Models\Category;
@@ -20,6 +19,7 @@ class ProductController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('isAdmin');
+        $this->middleware('userPermissions');
         $this->middleware('userStatus');
     }
 

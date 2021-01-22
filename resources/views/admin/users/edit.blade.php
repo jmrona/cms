@@ -7,7 +7,7 @@
         / <a href="{{ url('/admin/users/all') }}">Users&nbsp;</a>
     </li>
     <li class="breadcrumb-item">
-        / <a href="{{ url('/admin/user/'.$user->id.'/edit/') }}">Edit</a>
+        / <a href="{{ url('/admin/user/'.$user->id.'/edit/') }}">{{$user->firstname}}'s details</a>
     </li>
 @endsection
 
@@ -61,16 +61,18 @@
                         </span>
                     </p>
                     <p class="mt-1 w-100">
-                        @if ($user->status == '100')
-                            <a href="{{ url('/admin/user/'.$user->id).'/active' }}" class="tooltip btn btn-success btn-block">
-                                <i class="fas fa-user-check"></i> Active user
-                                <span class="tooltiptext">Active</span>
-                            </a>
-                        @else
-                            <a href="{{ url('/admin/user/'.$user->id).'/banned' }}" class="tooltip btn btn-danger btn-block">
-                                <i class="fas fa-ban"></i> Ban user
-                                <span class="tooltiptext">Banned</span>
-                            </a>
+                        @if (kvfj(Auth::user()->permissions, 'users_ban'))
+                            @if ($user->status == '100')
+                                <a href="{{ url('/admin/user/'.$user->id).'/active' }}" class="tooltip btn btn-success btn-block">
+                                    <i class="fas fa-user-check"></i> Active user
+                                    <span class="tooltiptext">Active</span>
+                                </a>
+                            @else
+                                <a href="{{ url('/admin/user/'.$user->id).'/banned' }}" class="tooltip btn btn-danger btn-block">
+                                    <i class="fas fa-ban"></i> Ban user
+                                    <span class="tooltiptext">Banned</span>
+                                </a>
+                            @endif
                         @endif
                     </p>
                 </div>

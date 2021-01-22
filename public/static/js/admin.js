@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     // Upload image botton for Gallery
-    if(route == "product_edit"){
+    if(route == "products_edit"){
         let input_file = document.getElementById('input_file');
         let btn_upload_image = document.getElementById('btn_upload_image');
 

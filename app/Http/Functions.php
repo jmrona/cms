@@ -1,5 +1,21 @@
 <?php
 
+// Key Value From JSON
+function kvfj($json, $key){
+    if($json == ''){
+        return null;
+    }
+
+    $json = $json;
+    $json = json_decode($json, true);
+
+    if(!array_key_exists($key, $json)){
+        return null;
+    }
+
+    return $json[$key];
+}
+
 function getModulesArray(){
     $a = [
         '0' => 'Products',

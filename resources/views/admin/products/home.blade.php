@@ -14,9 +14,11 @@
             <div class="panel-header">
                 <h2>Products</h2>
                 <div>
+                    @if (kvfj(Auth::user()->permissions, 'products_add'))
                     <a class="btn btn-success" href="{{ url('/admin/products/add') }}" >
                         <i class="fas fa-plus"></i> Add product
                     </a>
+                    @endif
                 </div>
             </div>
             <div class="panel-body">
@@ -51,14 +53,18 @@
                                     <td>{{$product->cat->name}}</td>
                                     <td>{{$product->price}}</td>
                                     <td>
+                                        @if (kvfj(Auth::user()->permissions, 'products_edit'))
                                         <a class="tooltip btn btn-warning" href="{{ url('/admin/products/edit/'.$product->id)}}">
                                             <i class="fas fa-pen"></i>
                                             <span class="tooltiptext">Edit</span>
                                         </a>
+                                        @endif
+                                        @if (kvfj(Auth::user()->permissions, 'products_delete'))
                                         <a class="tooltip btn btn-danger" href="{{ url('/admin/products/delete/'.$product->id)}}">
                                             <i class="fas fa-trash"></i>
                                             <span class="tooltiptext">Delete</span>
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

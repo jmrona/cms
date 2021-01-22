@@ -35,11 +35,13 @@
         <div class="panel glass w-50 fg-0">
             <div class="panel-header">
                 <h2>Categories</h2>
+                @if (kvfj(Auth::user()->permissions, 'category_add'))
                 <div>
                     <a class="btn btn-success" href="{{ url('/admin/categories/add') }}" >
                         <i class="fas fa-plus"></i> Add category
                     </a>
                 </div>
+                @endif
             </div>
             <div class="panel-body">
                 <table class="table">
@@ -65,14 +67,18 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if (kvfj(Auth::user()->permissions, 'category_edit'))
                                         <a class="tooltip btn btn-warning" href="{{ url('/admin/categories/edit/'.$category->id)}}">
                                             <i class="fas fa-pen"></i>
                                             <span class="tooltiptext">Edit</span>
                                         </a>
+                                        @endif
+                                        @if (kvfj(Auth::user()->permissions, 'category_delete'))
                                         <a class="tooltip btn btn-danger" href="{{ url('/admin/categories/delete/'.$category->id)}}">
                                             <i class="fas fa-trash"></i>
                                             <span class="tooltiptext">Delete</span>
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

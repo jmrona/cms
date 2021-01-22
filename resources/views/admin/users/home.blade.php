@@ -70,10 +70,18 @@
                                <td>{{ getUserRole(null, $user->role)}}</td>
                                <td>{{ getUserStatus(null, $user->status)}}</td>
                                <td>
+                                   @if (kvfj(Auth::user()->permissions, 'users_edit'))
                                    <a href="{{ url('/admin/user/'.$user->id).'/edit' }}" class="tooltip btn btn-warning">
-                                        <i class="fas fa-pen"></i>
+                                        <i class="fas fa-user-edit"></i>
                                         <span class="tooltiptext">Edit</span>
                                     </a>
+                                    @endif
+                                    @if (kvfj(Auth::user()->permissions, 'users_permissions'))
+                                    <a href="{{ url('/admin/user/'.$user->id).'/permissions' }}" class="tooltip btn btn-default">
+                                        <i class="fas fa-user-cog"></i>
+                                        <span class="tooltiptext">Permissions</span>
+                                    </a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

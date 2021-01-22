@@ -11,6 +11,7 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('isAdmin');
+        $this->middleware('userPermissions');
         $this->middleware('userStatus');
     }
 

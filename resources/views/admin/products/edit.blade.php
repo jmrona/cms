@@ -76,7 +76,7 @@
                         {!! Form::label('image', 'Image', []) !!}
                         {!! Form::file('image', ['class' => 'w-50', 'accept' => 'image/*']) !!}
 
-                        {!! Form::submit('Add', ['class' => 'btn-submit btn-success']) !!}
+                        {!! Form::submit('Add', ['class' => 'btn-submit btn-success btn-block']) !!}
                     {!! Form::close() !!}
                 </div>
 
@@ -88,28 +88,35 @@
                 <h2>Gallery Product</h2>
             </div>
             <div class="panel-body">
-                {!! Form::open(['url'=> '/admin/product/'.$product->id.'/gallery/add', 'files'=>true, 'id' => 'form_product_gallery']) !!}
-                    {!! Form::file('input_file', ['id'=> 'input_file', 'accept' => 'image/*', 'required']) !!}
-                {!! Form::close() !!}
+
                 <div class="gallery mt-1">
-                    <div class="gallery-add">
-                        <a id="btn_upload_image" href="#" >
-                            <i class="fas fa-plus"></i>
-                        </a>
-                    </div>
+
+                    @if (kvfj(Auth::user()->permissions, 'product_gallery_add'))
+                        {!! Form::open(['url'=> '/admin/product/'.$product->id.'/gallery/add', 'files'=>true, 'id' => 'form_product_gallery']) !!}
+                            {!! Form::file('input_file', ['id'=> 'input_file', 'accept' => 'image/*', 'required']) !!}
+                        {!! Form::close() !!}
+                        <div class="gallery-add">
+                            <a id="btn_upload_image" href="#" >
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    @endif
+
                     @foreach ($product->getGallery as $img)
                         <div class="gallery-item">
                             <a data-fancybox="gallery" href="{{ url('/uploads/'.$img->file_path.'/'.$img->file_name) }}">
                                 <img src="{{ url('/uploads/'.$img->file_path.'/t_'.$img->file_name) }} " />
                             </a>
-                            <div class="gallery-item-opts">
-                                <a href="{{ url('admin/product/'.$product->id.'/gallery/'.$img->id.'/delete') }}" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </div>
+                            @if (kvfj(Auth::user()->permissions, 'product_gallery_delete'))
+                                <div class="gallery-item-opts">
+                                    <a href="{{ url('admin/product/'.$product->id.'/gallery/'.$img->id.'/delete') }}" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            @endif
                         </div>
-
                     @endforeach
+
                 </div>
             </div>
         </div>

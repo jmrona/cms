@@ -10,6 +10,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/user/{id}/edit', 'App\Http\Controllers\Admin\UserController@edit')->name('users_edit');
     Route::get('/user/{id}/banned', 'App\Http\Controllers\Admin\UserController@banUser')->name('users_ban');
     Route::get('/user/{id}/active', 'App\Http\Controllers\Admin\UserController@activeUser')->name('users_active');
+    Route::get('/user/{id}/permissions', 'App\Http\Controllers\Admin\UserController@getPermissions')->name('users_permissions');
+    Route::post('/user/{id}/permissions', 'App\Http\Controllers\Admin\UserController@savePermissions')->name('users_permissions');
 
     // Products
     Route::get('/products', 'App\Http\Controllers\Admin\ProductController@index')->name('products_list');
